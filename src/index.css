@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TEAS - The Entropic Archival System
+   Neo-terminal aesthetic with decay visualization
+   All colors in HSL format */
+
+@layer base {
+  :root {
+    /* Base dark theme - deep slate */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 92%;
+
+    /* Cards and surfaces */
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 92%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 92%;
+
+    /* Primary: Teal accent */
+    --primary: 175 72% 46%;
+    --primary-foreground: 222 47% 6%;
+
+    /* Secondary: Deep slate */
+    --secondary: 217 33% 15%;
+    --secondary-foreground: 210 40% 92%;
+
+    /* Muted elements */
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 55%;
+
+    /* Accent: Amber for warnings/decay */
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    /* Destructive: Red for deletions */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Stage colors */
+    --stage-full: 142 76% 48%;
+    --stage-compressed: 175 72% 46%;
+    --stage-summarized: 38 92% 50%;
+    --stage-minimal: 25 95% 53%;
+    --stage-deleted: 0 84% 60%;
+
+    /* Utility */
+    --border: 217 33% 18%;
+    --input: 217 33% 15%;
+    --ring: 175 72% 46%;
+
+    --radius: 0.5rem;
+
+    /* Chart colors */
+    --chart-1: 175 72% 46%;
+    --chart-2: 142 76% 48%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 25 95% 53%;
+    --chart-5: 0 84% 60%;
+
+    /* Custom gradients */
+    --gradient-terminal: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(217 33% 10%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(175 72% 46% / 0.2) 0%, hsl(175 72% 46% / 0) 100%);
+    --gradient-decay: linear-gradient(90deg, hsl(142 76% 48%) 0%, hsl(38 92% 50%) 50%, hsl(0 84% 60%) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(175 72% 46% / 0.15);
+    --shadow-card: 0 4px 24px hsl(222 47% 3% / 0.5);
+    --shadow-danger: 0 0 20px hsl(0 84% 60% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 175 72% 46%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 217 33% 12%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 217 33% 15%;
+    --sidebar-ring: 175 72% 46%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 92%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 92%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 92%;
+    --primary: 175 72% 46%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 15%;
+    --secondary-foreground: 210 40% 92%;
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 6%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 18%;
+    --input: 217 33% 15%;
+    --ring: 175 72% 46%;
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 175 72% 46%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 217 33% 12%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 217 33% 15%;
+    --sidebar-ring: 175 72% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Monospace for data elements */
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+  }
+}
+
+@layer components {
+  /* Terminal-style cards */
+  .terminal-card {
+    @apply bg-card border border-border rounded-lg;
+    box-shadow: var(--shadow-card);
+  }
+
+  .terminal-card-glow {
+    @apply bg-card border border-primary/30 rounded-lg;
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Glowing text effects */
+  .text-glow {
+    text-shadow: 0 0 10px hsl(175 72% 46% / 0.5);
+  }
+
+  .text-glow-warning {
+    text-shadow: 0 0 10px hsl(38 92% 50% / 0.5);
+  }
+
+  .text-glow-danger {
+    text-shadow: 0 0 10px hsl(0 84% 60% / 0.5);
+  }
+
+  /* Stage badges */
+  .stage-full {
+    @apply bg-stage-full/20 text-stage-full border-stage-full/40;
+  }
+
+  .stage-compressed {
+    @apply bg-stage-compressed/20 text-stage-compressed border-stage-compressed/40;
+  }
+
+  .stage-summarized {
+    @apply bg-stage-summarized/20 text-stage-summarized border-stage-summarized/40;
+  }
+
+  .stage-minimal {
+    @apply bg-stage-minimal/20 text-stage-minimal border-stage-minimal/40;
+  }
+
+  .stage-deleted {
+    @apply bg-stage-deleted/20 text-stage-deleted border-stage-deleted/40;
+  }
+
+  /* Progress bar with decay gradient */
+  .decay-progress {
+    background: var(--gradient-decay);
+  }
+
+  /* Animated pulse for active simulation */
+  .pulse-active {
+    animation: pulseGlow 2s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 5px hsl(175 72% 46% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(175 72% 46% / 0.6);
+    }
+  }
+
+  /* Scanline effect for retro feel */
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(222 47% 6% / 0.03) 2px,
+      hsl(222 47% 6% / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* Data table styling */
+  .data-table {
+    @apply w-full font-mono text-sm;
+  }
+
+  .data-table th {
+    @apply px-4 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider bg-muted/50;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 border-t border-border;
+  }
+
+  /* Metric cards */
+  .metric-value {
+    @apply text-3xl font-bold font-mono tracking-tight;
+  }
+
+  .metric-label {
+    @apply text-xs uppercase tracking-wider text-muted-foreground;
+  }
+
+  /* Navigation active state */
+  .nav-active {
+    @apply bg-primary/10 text-primary border-l-2 border-primary;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-terminal {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(175 72% 46% / 0.3) hsl(217 33% 12%);
+  }
+
+  .scrollbar-terminal::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-terminal::-webkit-scrollbar-track {
+    background: hsl(217 33% 12%);
+  }
+
+  .scrollbar-terminal::-webkit-scrollbar-thumb {
+    background: hsl(175 72% 46% / 0.3);
+    border-radius: 3px;
+  }
+
+  .scrollbar-terminal::-webkit-scrollbar-thumb:hover {
+    background: hsl(175 72% 46% / 0.5);
+  }
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
