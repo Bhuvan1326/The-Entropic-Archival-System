@@ -3,6 +3,10 @@
 A cloud-inspired archival simulation that models long-term storage decay and makes autonomous, irreversible preservation decisions based on semantic value. Built for **Problem Statement 1 (PS1)**.
 
 ---
+## Live Depolyment
+https://the-entropic-archival-system.vercel.app
+
+---
 
 ## Overview
 TEAS simulates a distributed archival system over **60 years**, where storage capacity gradually decays. Unlike traditional storage, TEAS focuses on **preserving knowledge**, not just files.
