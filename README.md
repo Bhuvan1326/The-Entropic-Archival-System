@@ -115,7 +115,7 @@ After 60 years:
 
 ---
 
-## Our Team - PythonCathers
+## Our Team - PythonCatchers 
 * Bhuvan Patil(Team Lead) 
 bhuvanpatil1313@gmail.com
 *[GitHub](https://github.com/Bhuvan1326)*
