@@ -1,6 +1,6 @@
 # TEAS – The Entropic Archival System
 
-A cloud-inspired archival simulation that models long-term storage decay and makes autonomous, irreversible preservation decisions based on semantic value. Built for **Problem Statement 1 (PS1)**.
+A cloud-inspired archival simulation that models long-term storage decay and makes autonomous, irreversible preservation decisions based on semantic value. 
 
 ---
 ## Live Depolyment
